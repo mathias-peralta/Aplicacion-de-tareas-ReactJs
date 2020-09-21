@@ -21,6 +21,8 @@ class TodoForm extends Component {
         this.setState({
             [name]: value
         })
+        
+        
     }
     handleSubmit(e) {
 
@@ -33,14 +35,14 @@ class TodoForm extends Component {
         return(
             <div className = "card">
                 <div className = "card-header bg-dark">
-                    <h3 className = " text-primary">Add new Tast</h3>
+                    <h3 className = " text-primary">Agregar nueva tarea</h3>
                 </div>
                 <div className = "card-body">
                     <form action="" onSubmit = {this.handleSubmit}>
                         <div className = "form-group">
                             <input
                                 type="text"
-                                placeholder = "enter name"
+                                placeholder = "Titulo"
                                 className = "form-control"
                                 onChange = {this.handleInput}
                                 name = "title"
@@ -65,6 +67,7 @@ class TodoForm extends Component {
 
                             />
                         </div>
+
                         <div className = "form-group">
                             <select name="prioridad" id="" className = "form-control" onChange = {this.handleInput}>
                                 <option value="">Low</option>

@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import Navigation from './components/Navigation';
 import { todos } from './todos.json';
 import TodoForm from './components/TodoForm';
+import Card from './components/Card';
 
 console.log(todos);
 class App extends Component {
@@ -14,18 +15,20 @@ class App extends Component {
       todos //los datos ya se encuentran dento del estado
     };
     this.handleAdd = this.handleAdd.bind(this);
+    this.removeTodo = this.removeTodo.bind(this);
   }
 
   handleAdd(todo) {
     this.setState({
       todos: [...this.state.todos, todo]
     })
+    
   }
-  removeTodo(indice){
+  removeTodo(i){
     if(window.confirm('Estas seguro que desea elminar este componente?')){
       this.setState({
-        todos: this.state.todos.filter((e, i) => {
-          return i !== indice
+        todos: this.state.todos.filter((e, indice) => {
+          return indice !== i
         })
       })
     }
@@ -34,25 +37,15 @@ class App extends Component {
   render() {
     const todos = this.state.todos.map((todo, indice) => {
       return(
-        <div className = "col-md-4 mt-4" key = {indice}>
-          <div className = "card">
-            <div className = "card-header">
-              <h3>{todo.title}</h3>
-              <span className = "badge badge-pill badge-danger ml-2">{todo.prioridad }</span>
-            </div>
-            <div className = "card-body">
-              <p>{todo.descripcion}</p>
-              <p>{todo.responsable}</p>
-            </div>
-            <div className = "card-footer">
-              <button 
-                className = "btn btn-danger"
-                onClick = {this.removeTodo.bind(this, indice)}
-              >Eliminar</button>
-            </div>
-          </div>
-        </div>
-
+        <Card
+          titulo = {todo.title}
+          responsable = {todo.responsable}
+          descripcion = {todo.descripcion}
+          prioridad = {todo.prioridad}
+          key = {indice}
+          indice = {indice}
+          removeTodo = {this.removeTodo}
+        />
       )
     })
 
