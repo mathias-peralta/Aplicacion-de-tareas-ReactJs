@@ -21,11 +21,20 @@ class App extends Component {
       todos: [...this.state.todos, todo]
     })
   }
+  removeTodo(indice){
+    if(window.confirm('Estas seguro que desea elminar este componente?')){
+      this.setState({
+        todos: this.state.todos.filter((e, i) => {
+          return i !== indice
+        })
+      })
+    }
+  }
 
   render() {
     const todos = this.state.todos.map((todo, indice) => {
       return(
-        <div className = "col-md-4 mt-4">
+        <div className = "col-md-4 mt-4" key = {indice}>
           <div className = "card">
             <div className = "card-header">
               <h3>{todo.title}</h3>
@@ -34,6 +43,12 @@ class App extends Component {
             <div className = "card-body">
               <p>{todo.descripcion}</p>
               <p>{todo.responsable}</p>
+            </div>
+            <div className = "card-footer">
+              <button 
+                className = "btn btn-danger"
+                onClick = {this.removeTodo.bind(this, indice)}
+              >Eliminar</button>
             </div>
           </div>
         </div>
