@@ -1,0 +1,29 @@
+{
+    "todos": [
+        {
+            "title": "tarea 1",
+            "responsable": "Mark",
+            "descripcion": "Lorem ipsun",
+            "prioridad": "low"
+        },
+        {
+            "title": "tarea 2",
+            "responsable": "Mathias",
+            "descripcion": "Lorem ipsun 2",
+            "prioridad": "medium"
+        },
+        {
+            "title": "tarea 3",
+            "responsable": "Alexander",
+            "descripcion": "Lorem ipsun 3",
+            "prioridad": "high"
+        },
+        {
+            "title": "tarea 4",
+            "responsable": "Alexander",
+            "descripcion": "Lorem ipsun 3",
+            "prioridad": "high"
+        }
+        
+    ]
+}
