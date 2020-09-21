@@ -12,8 +12,16 @@ class App extends Component {
     super();//esto hace que herede todas las funcionalidades de react
     this.state = {
       todos //los datos ya se encuentran dento del estado
-    }
+    };
+    this.handleAdd = this.handleAdd.bind(this);
   }
+
+  handleAdd(todo) {
+    this.setState({
+      todos: [...this.state.todos, todo]
+    })
+  }
+
   render() {
     const todos = this.state.todos.map((todo, indice) => {
       return(
@@ -32,13 +40,14 @@ class App extends Component {
 
       )
     })
+
     return(
       <div className = "App">
         <Navigation contador = {this.state.todos.length}/> 
         <div className = "container">
           <div className = "row mt-4">
             <div className = "col-md-4 mt-4">
-              <TodoForm />
+              <TodoForm onAdd = {this.handleAdd}/>
             </div>
             <div className = "col-md-8">
               <div className = "row ">

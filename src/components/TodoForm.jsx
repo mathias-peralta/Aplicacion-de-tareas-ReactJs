@@ -26,6 +26,7 @@ class TodoForm extends Component {
 
         console.log('enviando los datos');
         console.log(this.state);
+        this.props.onAdd(this.state);
         e.preventDefault();
     }
     render() {
@@ -65,7 +66,7 @@ class TodoForm extends Component {
                             />
                         </div>
                         <div className = "form-group">
-                            <select name="" id="" className = "form-control" onChange = {this.handleInput}>
+                            <select name="prioridad" id="" className = "form-control" onChange = {this.handleInput}>
                                 <option value="">Low</option>
                                 <option value="">Mediwm</option>
                                 <option value="">High</option>
